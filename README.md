@@ -109,7 +109,8 @@ Write client-side code and link those files. Check out v2 branch to explore to f
 ### Step 1 - Prepare
 #### Web service choosing
 
-Zendesk requests: Submit a new request or check reqests that have been assigned to a user
+
+Zendesk requests: Submit a new request or check requests that have been assigned to a user.
 
 #### Project Workbase
 * Create zendesk.js in cloud folder
@@ -253,3 +254,106 @@ Open zendesk.js in cloud folder and put the following code inside:
                    }
               }
             };
+
+
+
+
+## MASH UP - JSONP and SOAP(v4 Branch)
+
+### Step 1 - Prepare
+#### Web service choosing
+Yahoo Finance: Look up company stock symbol using company name and then retrieve 
+information based on that stock symbol.
+
+#### Project Workbase
+* Create stock.js in cloud folder
+* Create stock.js in js folder on client
+
+### Step 2 - Implementation
+---------------------------------------
+Open stock.js in cloud folder and put the following code inside:
+
+                              /**
+             * Mash multiple business apis returned data.
+             * Stock Symble lookup: Using YAHOO API. JSONP
+             * Stock Info lookup: Using WebServiceX API . SOAP
+             *
+             */
+
+            var stock = {
+                  //YAHOO finance api for looking up stock symbol with a company name. It is a JSONP service.
+                  yahooApi : "http://d.yimg.com/autoc.finance.yahoo.com/autoc?query={0}&callback=YAHOO.Finance.SymbolSuggest.ssCallback",
+                  //WebServiceX API (Open API). It returns stock details with specific stock symbol.
+                  webServiceXApi : "http://www.webservicex.net/stockquote.asmx",
+                  /**
+                   * The function will look for stock symbol based on "name" param, and return stock info from WebServiceX
+                   *
+                   * Return stock information.
+                   */
+                  getStockInfo : function(name) {
+                        //Compose request url using user input.
+                        var yahooApiUrl = this.yahooApi.replace("{0}", name);
+                        /*
+                         * Perform Webcall
+                         * Raw response from YAHOO JSONP api which contains stock symbol as well as other information we do not want.
+                         * 
+                         */ 
+                        var symbolRes = $fh.web({
+                              url : yahooApiUrl,
+                              method:"GET",
+                              charset:"UTF-8",
+                              period:3600
+                        });
+
+                        //Clear up YAHOO response and only keep the information "stock symbol" we need.
+                        var stockSymbol = this.processSymbolRes(symbolRes);
+
+                        // construct SOAP envelop. We could do this manually or just use a Javascript Library.
+                        var soapEnvolope='<?xml version="1.0" encoding="utf-8"?>'
+                                                      +'<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">'
+                                                      +  '<soap:Body>'
+                                                      +    '<GetQuote xmlns="http://www.webserviceX.NET/">'
+                                                      +      '<symbol>'+stockSymbol+'</symbol>'
+                                                      +    '</GetQuote>'
+                                                      +  '</soap:Body>'
+                                                      +'</soap:Envelope>';
+
+                        //Retrieve SOAP url
+                        var stockInfoUrl=this.webServiceXApi;
+
+                        //Prepare webcall parameters
+                        var opt={
+                              url:stockInfoUrl,
+                              method:"POST",
+                              charset:"UTF-8",
+                              contentType:"text/xml",
+                              body:soapEnvolope,
+                              period:3600
+                        }
+
+                        //Perform webcall
+                        var stockInfoSoapRes=$fh.web(opt);
+
+                        //getSOAPElement will retrieve specific XML object within SOAP response
+                        var xmlData=getSOAPElement("GetQuoteResult",stockInfoSoapRes.body)
+
+
+                        //mash up the data and return to client.
+                        return { 
+                              stockSymbol:stockSymbol,
+                              stockInfo:xmlData.toString()
+                        };
+
+                  },
+                  /**
+                   * Process Response from YAHOO stock symbol api.
+                   * It will clear up the response and only return stock symbol as string.
+                   */
+                  processSymbolRes : function(res) {
+                        var resBody=res.body;
+                        var removedHeadRes=resBody.replace("YAHOO.Finance.SymbolSuggest.ssCallback(",""); //remove jsonp callback header
+                        var removedTailRes=removedHeadRes.substr(0,removedHeadRes.length-1); //remove jsonp callback bracket
+                        var resObj=$fh.parse(removedTailRes); //parse result to JSON object
+                        return resObj.ResultSet.Result[0].symbol; //return the first matched stock symbol
+                  }
+            }
