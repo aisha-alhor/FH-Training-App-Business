@@ -12,7 +12,7 @@ This tutorial will lead an app development process which contains following cont
 * How to use Javascript library on cloud.
 
 ## Workbase Structure (v1 Branch)
-<img src="https://github.com/keyang-feedhenry/Business/raw/master/docs/projectstructure.png"/>
+<img src="https://github.com/feedhenry/FH-Training-App-Business/raw/master/docs/projectstructure.png"/>
 
 Check out v1 branch to explore the code.
 
