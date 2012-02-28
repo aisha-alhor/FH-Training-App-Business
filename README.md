@@ -27,11 +27,11 @@ TDD Applied to FeedHenry App
 
 * Github:  !!!!!!!!!!!!!!!!!!!!!!!   URL HERE   !!!!!!!!!!!!!!!!!!!!!!!
 * Branch: test
-
-
-
-
-
+  
+  
+  
+  
+  
 # A Good Practice
 Write Unit Test with FeedHenry App
 
@@ -155,11 +155,11 @@ Once Expresso has installed. In CLI:
 * Run one tests:  
     expresso -o testStockService
     ./runTests.js
-
-
-
-
-
+  
+  
+  
+  
+  
 # Advanced
 More useful stuff with Cloud-side unit tests
 
