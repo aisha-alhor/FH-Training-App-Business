@@ -12,7 +12,7 @@ This tutorial will lead an app development process which contains following cont
 * How to use Javascript library on cloud.
 
 ## Workbase Structure (v1 Branch)
-<img src="https://github.com/keyang-feedhenry/Business/raw/master/docs/projectstructure.png"/>
+<img src="https://github.com/feedhenry/FH-Training-App-Business/raw/master/docs/projectstructure.png"/>
 
 
 ## SOAP Service Integration (v2 Branch)
@@ -42,59 +42,59 @@ Open mortgage.js in cloud folder with you favorite text editor and put following
        */
       var mortgage = {
         //SOAP API URL
-      	SOAPUrl : "http://www.webservicex.net/mortgage.asmx",
-      	/**
-      	 * Calc mortgaeg based on user input.
-      	 * Tutorial: How to wrap SOAP message and unwrap SOAP response.
-      	 */
-      	getMortgage : function(years, interest,loanAmount,tax,insurance) {
-      		/**
-      		 * Since SOAP calls are wrapped HTTP calls, in Javascript we have to wrap SOAP envelope manually or using a SOAP library in Javascript
-      		 */
-      		var xmlContent = '<?xml version="1.0" encoding="utf-8"?>' + 
-      		'<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">' + 
-      		' <soap:Body>' + 
-      		'   <GetMortgagePayment xmlns="http://www.webserviceX.NET/">' + 
-      		'   <Years>'+years+'</Years>' + 
-      		'   <Interest>'+interest+'</Interest>' + 
-      		'   <LoanAmount>'+loanAmount+'</LoanAmount>' + 
-      		'   <AnnualTax>'+tax+'</AnnualTax>' + 
-      		'   <AnnualInsurance>'+insurance+'</AnnualInsurance>' + 
-      		'   </GetMortgagePayment>' + 
-      		' </soap:Body>' + 
-      		'</soap:Envelope>'
-      		
-      		
-      		var url=this.SOAPUrl;
-      		//Webcall paramters.
-      		var opt={
-      			url : url,
-      			method : "POST",
-      			charset : 'UTF-8',
-      			contentType : 'text/xml',
-      			body:xmlContent,
-      			period : 3600
-      		 };
-      		 
-      		 //Feedhenry Web Call
-      		var res= $fh.web(opt);
-      		
-      		// getSOAPElement will return an xml object that exists in SOAP response
-      		var xmlData=getSOAPElement("GetMortgagePaymentResult",res.body);
-      		
-      		// construct final returned JSON object.
-      		var rtnObj={
-      			MonthlyPrincipalAndInterest:xmlData.MonthlyPrincipalAndInterest.toString(),
-      			MonthlyTax:xmlData.MonthlyTax.toString(),
-      			MonthlyInsurance:xmlData.MonthlyInsurance.toString(),
-      			TotalPayment:xmlData.TotalPayment.toString()
-      		}
-      		
-      		
-      		return rtnObj;
-      		
-      		
-      	}
+            SOAPUrl : "http://www.webservicex.net/mortgage.asmx",
+            /**
+             * Calc mortgaeg based on user input.
+             * Tutorial: How to wrap SOAP message and unwrap SOAP response.
+             */
+            getMortgage : function(years, interest,loanAmount,tax,insurance) {
+                  /**
+                   * Since SOAP calls are wrapped HTTP calls, in Javascript we have to wrap SOAP envelope manually or using a SOAP library in Javascript
+                   */
+                  var xmlContent = '<?xml version="1.0" encoding="utf-8"?>' + 
+                  '<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">' + 
+                  ' <soap:Body>' + 
+                  '   <GetMortgagePayment xmlns="http://www.webserviceX.NET/">' + 
+                  '   <Years>'+years+'</Years>' + 
+                  '   <Interest>'+interest+'</Interest>' + 
+                  '   <LoanAmount>'+loanAmount+'</LoanAmount>' + 
+                  '   <AnnualTax>'+tax+'</AnnualTax>' + 
+                  '   <AnnualInsurance>'+insurance+'</AnnualInsurance>' + 
+                  '   </GetMortgagePayment>' + 
+                  ' </soap:Body>' + 
+                  '</soap:Envelope>'
+                  
+                  
+                  var url=this.SOAPUrl;
+                  //Webcall paramters.
+                  var opt={
+                        url : url,
+                        method : "POST",
+                        charset : 'UTF-8',
+                        contentType : 'text/xml',
+                        body:xmlContent,
+                        period : 3600
+                   };
+                   
+                   //Feedhenry Web Call
+                  var res= $fh.web(opt);
+                  
+                  // getSOAPElement will return an xml object that exists in SOAP response
+                  var xmlData=getSOAPElement("GetMortgagePaymentResult",res.body);
+                  
+                  // construct final returned JSON object.
+                  var rtnObj={
+                        MonthlyPrincipalAndInterest:xmlData.MonthlyPrincipalAndInterest.toString(),
+                        MonthlyTax:xmlData.MonthlyTax.toString(),
+                        MonthlyInsurance:xmlData.MonthlyInsurance.toString(),
+                        TotalPayment:xmlData.TotalPayment.toString()
+                  }
+                  
+                  
+                  return rtnObj;
+                  
+                  
+            }
       };
 
 Please read the comments carefully to understand each step.
