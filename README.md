@@ -1,4 +1,5 @@
 #Unit Tests for Cloud
+===========================================
 TDD Applied to FeedHenry App
 
 
@@ -33,6 +34,7 @@ TDD Applied to FeedHenry App
   
   
 # A Good Practice
+==================================================
 Write Unit Test with FeedHenry App
 
 
@@ -84,7 +86,7 @@ For more information please checkout the example source code.
 
 ## Test Case Examples
 
-	`{
+	{
 		name:"Get Stock Symbol and Stock Info of Apple Company", //Test Case name
 		action:"getStockInfo",  // $fh,act action name. Cloud method name.
 		params:{   // $fh.act parameter. Cloud method parameter.
@@ -95,7 +97,7 @@ For more information please checkout the example source code.
 			assert.equal(res.stockSymbol,"AAPL","Stock symbol for Apple should be AAPL");
 			assert(res.stockInfo.length>0);
 		}
-	}`
+	}
 
 
 ## Test Case File
@@ -104,14 +106,14 @@ For more information please checkout the example source code.
 * One Test Case file could contain multiple test cases
 * Example:
 
-	`modules.exports=[ //Node.js Exports
+	modules.exports=[ //Node.js Exports
 		{
 		//Test Case one
 		},
 		{
 		// Test Case Two
 		}
-	];`
+	];
 
 
 ## Test Runner
@@ -119,7 +121,7 @@ For more information please checkout the example source code.
 * Defined in runTests.js
 * Example Code:
 
-		`//include library
+		//include library
 		var lib = require("./lib"); 
 
 		var tests = {
@@ -142,7 +144,7 @@ For more information please checkout the example source code.
 		}
 
 		//export all test functions
-		module.exports = tests;`
+		module.exports = tests;
 
 
 ## Run Tests
@@ -161,6 +163,7 @@ Once Expresso has installed. In CLI:
   
   
 # Advanced
+==========================================================================
 More useful stuff with Cloud-side unit tests
 
 
