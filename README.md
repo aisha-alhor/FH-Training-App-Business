@@ -5,7 +5,7 @@ TDD Applied to FeedHenry App
 ## Requirement
 
 * Node.js
-  Node.js is a platform for building network applications. Used as FeedHenry Cloud development platform.
+	Node.js is a platform for building network applications. Used as FeedHenry Cloud development platform.
 	Doc & installation: http://nodejs.org/#
 
 * Expresso
@@ -29,7 +29,7 @@ TDD Applied to FeedHenry App
 * Branch: test
 
 
-### A Good Practice
+# A Good Practice
 Write Unit Test with FeedHenry App
 
 
@@ -153,7 +153,7 @@ Once Expresso has installed. In CLI:
 	./runTests.js
 
 
-### Advanced
+# Advanced
 More useful stuff with Cloud-side unit tests
 
 
