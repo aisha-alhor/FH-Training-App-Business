@@ -2,14 +2,14 @@
 
 ## Introduction
 
-Thousands of services on web are provided based on HTTP proxy such as SOAP, REST etc.
+Most services on the web are provided based on HTTP protocols such as SOAP and REST.
 
-This tutorial will lead an app development process which contains following content:
+This tutorial will teach how to:
 
-* How to invoke external SOAP services, parse returned data and send data to device with Feedhenry Platform.
-* How to invoke external REST services, parse data and sent data to device with Feedhenry Platform.
-* How to Mash-up data from different services and send data to device.
-* How to use Javascript library on cloud.
+* Invoke an external SOAP service, parse the returned data and send data to the device
+* Invoke an external REST service, parse the returned data and sent data to the device
+* Mash-up data from different services and send data to device.
+* Use Javascript on the cloud.
 
 ## Workbase Structure (v1 Branch)
 <img src="https://github.com/keyang-feedhenry/Business/raw/master/docs/projectstructure.png"/>
@@ -18,7 +18,7 @@ This tutorial will lead an app development process which contains following cont
 ## SOAP Service Integration (v2 Branch)
 
 ### Step 1 -- Prepare 
-#### Web service choosing
+#### Web Service Used
 
 Mortgage Calculator: Use this Web service to figure out your monthly mortgage payment
 
@@ -107,7 +107,7 @@ Write client-side code and link those files. Check out v2 branch to explore the 
 ## REST Service Integration (v3 Branch)
 
 ### Step 1 -- Prepare
-#### Web service choosing
+#### Web Service Used
 
 Zendesk requests: Submit a new request or check requests that have been assigned to a user.
 
@@ -266,14 +266,14 @@ Write client-side code and link those files. Check out v3 branch to explore the 
 ## MASH UP - JSONP and SOAP (v4 Branch)
 
 ### Step 1 -- Prepare
-#### Web service choosing
-Yahoo Finance: Look up company stock symbol using company name.
+#### Web Service Used
+##### Yahoo Finance
+Look up company stock symbol using company name.  
+API: http://d.yimg.com/autoc.finance.yahoo.com/autoc?query={0}&callback=YAHOO.Finance.SymbolSuggest.ssCallback
 
-Yahoo API: http://d.yimg.com/autoc.finance.yahoo.com/autoc?query={0}&callback=YAHOO.Finance.SymbolSuggest.ssCallback
-
-WebServiceX: Retrieve company information based on stock symbol.
-
-WebServiceX API: http://www.webservicex.net/stockquote.asmx
+#####WebServiceX
+Retrieve company information based on stock symbol.  
+API: http://www.webservicex.net/stockquote.asmx
 
 #### Project Workbase
 * Create stock.js in cloud folder
