@@ -106,14 +106,14 @@ For more information please checkout the example source code.
 * One Test Case file could contain multiple test cases
 * Example:
 
-	modules.exports=[ //Node.js Exports
-		{
-		//Test Case one
-		},
-		{
-		// Test Case Two
-		}
-	];
+		`modules.exports=[ //Node.js Exports
+			{
+			//Test Case one
+			},
+			{
+			// Test Case Two
+			}
+		];`
 
 
 ## Test Runner
@@ -155,7 +155,7 @@ Once Expresso has installed. In CLI:
     `expresso ./runTests.js`
 
 * Run one tests:  
-    `expresso -o testStockService`
+    `expresso -o testStockService`  
     `./runTests.js`
   
   
