@@ -53,9 +53,9 @@ For more information please checkout the example source code.
 
 ## Configuration
 
-`module.exports={
+module.exports={
 	 instId:"r-Wd30IrfSV62V4rjhyI-BbU”
-}`
+}
 
 * instId: App unique instance ID in FeedHenry Platform. To collect this ID, open your project in the FeedHenry Platform, and
   in the Details page, press "Ctrl+Alt+G" together. Instance Id will be popped out.
@@ -67,6 +67,7 @@ For more information please checkout the example source code.
   Besides, you have to login to FHC so that you have the permission to interact wit your project. Check out FeedHenry FHC.
 
 * Example:
+
 	fhc target apps.feedhenry.com
 
 	fhc login username password
@@ -80,7 +81,7 @@ For more information please checkout the example source code.
 
 ## Test Case Examples
 
-	`{
+	{
 		name:"Get Stock Symble and Stock Info of Apple Company", //Test Case name
 		action:"getStockInfo",  // $fh,act action name. Cloud method name.
 		params:{   // $fh.act parameter. Cloud method parameter.
@@ -91,7 +92,7 @@ For more information please checkout the example source code.
 			assert.equal(res.stockSymbol,"AAPL","Stock symbol for Apple should be AAPL");
 			assert(res.stockInfo.length>0);
 		}
-	}`
+	}
 
 
 ## Test Case File
