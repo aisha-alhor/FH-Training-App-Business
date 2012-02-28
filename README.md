@@ -56,9 +56,9 @@ For more information please checkout the example source code.
 
 ## Configuration
 
-module.exports={
+`module.exports={
 	 instId:"r-Wd30IrfSV62V4rjhyI-BbU”
-}
+}`
 
 * instId: App unique instance ID in FeedHenry Platform. To collect this ID, open your project in the FeedHenry Platform, and
   in the Details page, press "Ctrl+Alt+G" together. Instance Id will be popped out.
@@ -71,9 +71,9 @@ module.exports={
 
 * Example:
 
-	fhc target apps.feedhenry.com
+	`fhc target apps.feedhenry.com`
 
-	fhc login username password
+	`fhc login username password`
 
 
 ## Test Cases
@@ -84,7 +84,7 @@ module.exports={
 
 ## Test Case Examples
 
-	{
+	`{
 		name:"Get Stock Symbol and Stock Info of Apple Company", //Test Case name
 		action:"getStockInfo",  // $fh,act action name. Cloud method name.
 		params:{   // $fh.act parameter. Cloud method parameter.
@@ -95,7 +95,7 @@ module.exports={
 			assert.equal(res.stockSymbol,"AAPL","Stock symbol for Apple should be AAPL");
 			assert(res.stockInfo.length>0);
 		}
-	}
+	}`
 
 
 ## Test Case File
@@ -104,14 +104,14 @@ module.exports={
 * One Test Case file could contain multiple test cases
 * Example:
 
-	modules.exports=[ //Node.js Exports
+	`modules.exports=[ //Node.js Exports
 		{
 		//Test Case one
 		},
 		{
 		// Test Case Two
 		}
-	];
+	];`
 
 
 ## Test Runner
@@ -119,7 +119,7 @@ module.exports={
 * Defined in runTests.js
 * Example Code:
 
-		//include library
+		`//include library
 		var lib = require("./lib"); 
 
 		var tests = {
@@ -142,7 +142,7 @@ module.exports={
 		}
 
 		//export all test functions
-		module.exports = tests;
+		module.exports = tests;`
 
 
 ## Run Tests
@@ -150,11 +150,11 @@ module.exports={
 Once Expresso has installed. In CLI:
 
 * Run all tests:  
-	expresso ./runTests.js
+    expresso ./runTests.js
 
 * Run one tests:  
-	expresso -o testStockService
-	./runTests.js
+    expresso -o testStockService
+    ./runTests.js
 
 
 
@@ -195,25 +195,5 @@ More useful stuff with Cloud-side unit tests
 * Add one test case file for newRequest Service with one test case.
 	Hint: 	Create test_newRequest.js file. Add test case and export test case array.
 			Add test entry in runTests.js
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
