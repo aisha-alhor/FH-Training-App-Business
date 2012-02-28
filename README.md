@@ -29,6 +29,9 @@ TDD Applied to FeedHenry App
 * Branch: test
 
 
+
+
+
 # A Good Practice
 Write Unit Test with FeedHenry App
 
@@ -82,7 +85,7 @@ module.exports={
 ## Test Case Examples
 
 	{
-		name:"Get Stock Symble and Stock Info of Apple Company", //Test Case name
+		name:"Get Stock Symbol and Stock Info of Apple Company", //Test Case name
 		action:"getStockInfo",  // $fh,act action name. Cloud method name.
 		params:{   // $fh.act parameter. Cloud method parameter.
 			"name":"apple"
@@ -101,14 +104,14 @@ module.exports={
 * One Test Case file could contain multiple test cases
 * Example:
 
-	`modules.exports=[ //Node.js Exports
+	modules.exports=[ //Node.js Exports
 		{
 		//Test Case one
 		},
 		{
 		// Test Case Two
 		}
-	];`
+	];
 
 
 ## Test Runner
@@ -116,7 +119,7 @@ module.exports={
 * Defined in runTests.js
 * Example Code:
 
-		`//include library
+		//include library
 		var lib = require("./lib"); 
 
 		var tests = {
@@ -139,19 +142,22 @@ module.exports={
 		}
 
 		//export all test functions
-		module.exports = tests;`
+		module.exports = tests;
 
 
 ## Run Tests
 
 Once Expresso has installed. In CLI:
 
-* Run all tests:
+* Run all tests:  
 	expresso ./runTests.js
 
-* Run one tests:
+* Run one tests:  
 	expresso -o testStockService
 	./runTests.js
+
+
+
 
 
 # Advanced
