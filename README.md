@@ -42,7 +42,7 @@ Open mortgage.js in cloud folder with you favorite text editor and put following
        */
       var mortgage = {
         //SOAP API URL
-      	SOAPUrl : "http://www.webservicex.net/mortgage.asmx",
+            SOAPUrl : "http://www.webservicex.net/mortgage.asmx",
       	/**
       	 * Calc mortgaeg based on user input.
       	 * Tutorial: How to wrap SOAP message and unwrap SOAP response.
