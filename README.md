@@ -1,4 +1,4 @@
-#Unit Tests for Cloud
+# Unit Tests for Cloud
 ===========================================
 TDD Applied to FeedHenry App
 
@@ -58,9 +58,9 @@ For more information please checkout the example source code.
 
 ## Configuration
 
-`module.exports={
-	 instId:"r-Wd30IrfSV62V4rjhyI-BbU”
-}`
+	module.exports={
+		 instId:"r-Wd30IrfSV62V4rjhyI-BbU”
+	}
 
 * instId: App unique instance ID in FeedHenry Platform. To collect this ID, open your project in the FeedHenry Platform, and
   in the Details page, press "Ctrl+Alt+G" together. Instance Id will be popped out.
@@ -152,11 +152,11 @@ For more information please checkout the example source code.
 Once Expresso has installed. In CLI:
 
 * Run all tests:  
-    expresso ./runTests.js
+    `expresso ./runTests.js`
 
 * Run one tests:  
-    expresso -o testStockService
-    ./runTests.js
+    `expresso -o testStockService`
+    `./runTests.js`
   
   
   
