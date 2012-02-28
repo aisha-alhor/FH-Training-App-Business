@@ -26,7 +26,7 @@ TDD Applied to FeedHenry App
 
 ## Example Source Code
 
-* Github:  !!!!!!!!!!!!!!!!!!!!!!!   URL HERE   !!!!!!!!!!!!!!!!!!!!!!!
+* Github: https://github.com/feedhenry/FH-Training-App-Business
 * Branch: test
   
   
@@ -53,7 +53,6 @@ Write Unit Test with FeedHenry App
 * runTests.js - Test runner, invoked by Expresso
 
 For more information please checkout the example source code.
-!!!!!!!!!!!!!! IMG HERE !!!!!!!!!!!!!!!!!!!!!!!!
 
 
 ## Configuration
