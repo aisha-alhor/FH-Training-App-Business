@@ -3,7 +3,7 @@
 TDD Applied to FeedHenry App
 
 
-### Requirement
+## Requirement
 
 * Node.js
 	Node.js is a platform for building network applications. Used as FeedHenry Cloud development platform.
@@ -17,14 +17,14 @@ TDD Applied to FeedHenry App
 	FeedHenry Node.js Module
 
 
-### Principle
+## Principle
 
 * Use FHC to send request to cloud and retrieve data to local
 * Write test cases locally using Node.js. Assert retrieved data from FHC with expected data.
 * Use Expresso to drive/manage test cases
 
 
-### Example Source Code
+## Example Source Code
 
 * Github: https://github.com/feedhenry/FH-Training-App-Business
 * Branch: test
@@ -38,14 +38,14 @@ TDD Applied to FeedHenry App
 Write Unit Test with FeedHenry App
 
 
-### Prepare
+## Prepare
 
 * Create a test folder in the root of the project
 * The structure of the test folder would be like:
 			!!!!!!!!!!!!!!!!   IMG HERE  !!!!!!!!!!!!!!!!!!!!!!!!
 
 
-### Structure
+## Structure
 
 * TestCases folder stores test case files
 * cfg.js - User Configuration
@@ -55,7 +55,7 @@ Write Unit Test with FeedHenry App
 For more information please checkout the example source code.
 
 
-### Configuration
+## Configuration
 
 	module.exports={
 		 instId:"r-Wd30IrfSV62V4rjhyI-BbU”
@@ -65,7 +65,7 @@ For more information please checkout the example source code.
   in the Details page, press "Ctrl+Alt+G" together. Instance Id will be popped out.
 
 
-### FHC
+## FHC
 
 * Before you run tests for a project, you have to set up your local FHC targeting the domain where your project is hosted.
   Besides, you have to login to FHC so that you have the permission to interact wit your project. Check out FeedHenry FHC.
@@ -77,13 +77,13 @@ For more information please checkout the example source code.
 	`fhc login username password`
 
 
-### Test Cases
+## Test Cases
 
 * It is recommended to categorise your test cases by your cloud services in different files in a folder (TestCases folder).
 * A test case file could contain multiple test cases for one cloud service.
 
 
-### Test Case Examples
+## Test Case Examples
 
 	{
 		name:"Get Stock Symbol and Stock Info of Apple Company", //Test Case name
@@ -99,7 +99,7 @@ For more information please checkout the example source code.
 	}
 
 
-### Test Case File
+## Test Case File
 
 * One Test Case file matches one cloud-side endpoint
 * One Test Case file could contain multiple test cases
@@ -115,7 +115,7 @@ For more information please checkout the example source code.
 		];
 
 
-### Test Runner
+## Test Runner
 
 * Defined in runTests.js
 * Example Code:
@@ -146,7 +146,7 @@ For more information please checkout the example source code.
 		module.exports = tests;
 
 
-### Run Tests
+## Run Tests
 
 Once Expresso has installed. In CLI:
 
@@ -166,7 +166,7 @@ Once Expresso has installed. In CLI:
 More useful stuff with Cloud-side unit tests
 
 
-### Test Driven Development
+## Test Driven Development
 
 * Write test cases first before developing projects
 * Test cases drive development
@@ -175,14 +175,14 @@ More useful stuff with Cloud-side unit tests
 * Maintainability
 
 
-### Failure
+## Failure
 
 * Failures are development goals which mean code/implementation required.
 * Failure makes sure those issues are monitored by test cases.
 * For example, in our sample project, the failure is telling us there is a bug in our project! This is good!
 
 
-### More Test Cases
+## More Test Cases
 
 * Write as many test cases as you can for a cloud service
 * Test cases are not implementation. It is the description of service.
@@ -190,7 +190,7 @@ More useful stuff with Cloud-side unit tests
 * Run test cases when cloud implementation has changed.
 
 
-### Homework
+## Homework
 
 * Add another test case for getMortgage Service.
 	Hint: 	Open test_mortgage.js file. Add a test case JSON object in tests array.
