@@ -42,7 +42,7 @@ Write Unit Test with FeedHenry App
 
 * Create a test folder in the root of the project
 * The structure of the test folder would be like:
-<img src="https://github.com/keyang-feedhenry/Business/raw/test/docs/structure.png"/>
+<img src="https://github.com/feedhenry/FH-Training-App-Business/blob/test/docs/structure.png"/>
 
 
 ## Structure
